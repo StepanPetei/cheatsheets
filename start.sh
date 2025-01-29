@@ -10,10 +10,10 @@ declare -a apps=("HTTP" "HTTPS" "Apache" "Nginx" "OpenSSH")
 
 #Aqui podras declarar la lista de paquetes que te pareceran útiles para
 #empezar el trabajo con el sistema como con el servidor
-declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "curl")
+declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx")
 
 #Aqui podrás declarar los servicios que hace falta iniciar
-declare -a services=("sshd" "apache2")
+declare -a services=("sshd" "apache2" "nginx" "docker")
 
 if [[ $EUID -ne 0 ]]; then
     echo "Este script debe ejecutarse como root o con sudo."
@@ -49,6 +49,7 @@ done
 echo "Configuración del firewall completada."
 
 #Agregamos usuarios para protocolos con cifrado al grupo
+usermod -aG docker $USER
 adduser xrdp ssl-cert
 
 #Tercer paso: lanzamiento de los servicios utilizando systemctl
