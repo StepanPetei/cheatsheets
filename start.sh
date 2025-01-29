@@ -41,9 +41,9 @@ for port in "${tcp_ports[@]}"; do
     ufw allow "$port"/tcp
 done
 #Habilitamos excepciones para apps en cortafuegos
-for i in "${apps[@]}"
+for app in "${apps[@]}"
 do
-    ufw allow from any to any $apps(i)
+    ufw allow from any to any $app
 done
 
 echo "Configuración del firewall completada."
@@ -53,10 +53,10 @@ usermod -aG docker $USER
 adduser xrdp ssl-cert
 
 #Tercer paso: lanzamiento de los servicios utilizando systemctl
-for i in "${services[@]}"
+for service in "${services[@]}"
 do
-    systemctl start $services(i)
-    systemctl enable $services(i)
+    systemctl start $service
+    systemctl enable $service
 done
 
 
