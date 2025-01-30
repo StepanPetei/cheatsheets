@@ -28,7 +28,7 @@ for package in "${packages[@]}"; do
 done
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # Verificar versión de Node.js e instalar si es necesario
-if [! nvm -v &> /dev/null;] then
+if [[! nvm -v &> /dev/null]]; then
     echo "nvm no está instalado correctamente. Abortando."
     exit 1
 fi
