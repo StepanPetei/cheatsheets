@@ -6,11 +6,11 @@
 clear
 #Aqui podras declarar necesarios puertos TCP e aplicaciones que hará falta abrir en cortafuegos
 declare -a tcp_ports=(21 22 53 57 80 123 443 1000 1645 1646 3389 5432 5433 10000)
-declare -a apps=("HTTP" "HTTPS" "Apache" "Nginx" "OpenSSH")
+#declare -a apps=("HTTP" "HTTPS" "Apache" "Nginx" "OpenSSH")
 
 #Aqui podras declarar la lista de paquetes que te pareceran útiles para
 #empezar el trabajo con el sistema como con el servidor
-declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx")
+declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx" "nodejs" "npm")
 
 #Aqui podrás declarar los servicios que hace falta iniciar
 declare -a services=("sshd" "apache2" "nginx" "docker")
@@ -45,11 +45,11 @@ ufw enable
 for port in "${tcp_ports[@]}"; do
     ufw allow "$port"/tcp
 done
-#Habilitamos excepciones para apps en cortafuegos
-for app in "${apps[@]}"
-do
-    ufw allow from any to any $app
-done
+#Habilitamos excepciones para apps en cortafuegos/ Upd.: no es necesario pero dejo este trozo de codigo por si necesita proceder para otras apps que podeis declarar en array "apps"
+#for app in "${apps[@]}"
+#do
+#    ufw allow from any to any $app
+#done
 
 echo "Configuración del firewall completada."
 
