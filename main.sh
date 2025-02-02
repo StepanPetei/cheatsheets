@@ -5,7 +5,7 @@
 #Es decir, para ejecutarlo hace falta empezar desde "sudo".
 clear
 #Aqui podras declarar necesarios puertos TCP e aplicaciones que hará falta abrir en cortafuegos
-declare -a tcp_ports=(21 22 53 57 80 123 443 1000 1645 1646 3389 5432 5433 10000)
+declare -a tcp_ports=(20 21 22 26 53 57 69 80 115 123 152 443 989 990 1000 1645 1646 3389 5432 5433 10000)
 #declare -a apps=("HTTP" "HTTPS" "Apache" "Nginx" "OpenSSH")
 
 #Aqui podras declarar la lista de paquetes que te pareceran útiles para
