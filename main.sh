@@ -37,6 +37,8 @@ ufw enable
 for port in "${tcp_ports[@]}"; do
     ufw allow "$port"/tcp
 done
+#Esta linea sirve para abrir puerto para peticiones DNS
+ufw allow 53/udp
 #Habilitamos excepciones para apps en cortafuegos/ Upd.: no es necesario pero dejo este trozo de codigo por si necesita proceder para otras apps que podeis declarar en array "apps"
 #for app in "${apps[@]}"
 #do
