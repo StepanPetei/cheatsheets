@@ -27,24 +27,8 @@ for package in "${packages[@]}"; do
     apt install -y $package
 done
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-# Verificar versión de Node.js e instalar si es necesario
-if [[! nvm -v &> /dev/null]]; then
-    echo "nvm no está instalado correctamente. Abortando."
-    exit 1
-fi
 
-if [[ $(node -v | cut -d'.' -f1 | tr -d 'v') -le $20 ]]; then
-    nvm install 22
-fi
-
-curl -O https://packages.cloud.google.com/apt/doc/apt-key.gpg && sudo apt-key add apt-key.gpg
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' 
-
-# Install
-sudo apt-get update
-sudo apt-get install google-chrome-stable
-
-apt update && apt upgrade && apt dist-upgrade
+#Despues de instalar nvm lanza nodejsupdate.sh para que se actualize automaticamente mediante nvm instalado en la linea 29
 
 #Segundo paso: inicialización del cortafuegos y
 #apertura de los puertos TCP clave que se han declarado en array "tcp_ports"
@@ -72,10 +56,6 @@ do
     systemctl enable $service
 done
 
-
-
-apt update && apt upgrade && apt dist-upgrade
-clear
-echo "Listo! Reiniciando el sistema para proceder a los ajustes particulares de cada paquete para personalizar el sistema en 10 segundos. Para abortar el reinicio pulsa Ctrl+C"
+echo "Listo! Cerrando el terminal en 10 segundos. Para abortar el cierre pulsa Ctrl+C"
 sleep 10
-reboot
+exit
