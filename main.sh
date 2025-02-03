@@ -10,7 +10,7 @@ declare -a tcp_ports=(20 21 22 26 53 57 69 80 115 123 152 443 989 990 1000 1645 
 
 #Aqui podras declarar la lista de paquetes que te pareceran útiles para
 #empezar el trabajo con el sistema como con el servidor
-declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "vsftpd" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx" "nodejs" "npm")
+declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "btop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "vsftpd" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx" "nodejs" "npm")
 
 #Aqui podrás declarar los servicios que hace falta iniciar
 declare -a services=("sshd" "apache2" "nginx" "docker")
