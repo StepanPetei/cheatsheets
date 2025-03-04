@@ -5,7 +5,7 @@ fi
 apt install -y zsh
 chsh -s $(which zsh)
 echo $SHELL
-sleep(5)
+sleep 5 
 zsh --version
-sleep(5)
+sleep 5 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
