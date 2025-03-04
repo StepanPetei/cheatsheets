@@ -13,7 +13,7 @@ declare -a tcp_ports=(20 21 22 26 53 57 69 80 115 123 152 443 989 990 1000 1645 
 declare -a packages=("gdebi" "neofetch" "net-tools" "htop" "btop" "git" "xrdp" "nginx" "apache2" "openssh-client" "openssh-server" "vsftpd" "curl" "docker.io" "docker-compose" "certbot" "python3-certbot-nginx" "nodejs" "npm")
 
 #Aqui podrás declarar los servicios que hace falta iniciar
-declare -a services=("sshd" "apache2" "nginx" "docker")
+declare -a services=("ssh" "nginx" "docker")
 
 if [[ $EUID -ne 0 ]]; then
     echo "Este script debe ejecutarse como root o con sudo."
