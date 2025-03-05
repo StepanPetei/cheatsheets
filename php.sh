@@ -3,16 +3,15 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 apt install php php-cli php-cgi php-fpm php-mysql php-pgsql #php-mbstring php-curl php-zip php-gd php-imagick php-redis php-memcached php-mongodb php-sqlite3 php-xdebug php-pear php-dev
-php -v
-sleep 5
-php -m
-sleep 5
-php -i
-sleep 5
-systemctl start php-fpm
+declare phpversion=$(php -v | grep -oP 'PHP \K[0-9]+\.[0-9]+')
+# php -m
+# sleep 5
+# php -i
+# sleep 5
+systemctl start php[$phpversion]-fpm
 systemctl restart nginx.service
-systemctl enable php-fpm nginx.service
-systemctl status php-fpm
+systemctl enable php[$phpversion]-fpm nginx.service
+systemctl status php[$phpversion]-fpm
 # php -S localhost:8000
 sleep 3
 systemctl status nginx.service
