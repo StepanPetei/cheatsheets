@@ -2,7 +2,7 @@ if [[ $EUID -ne 0 ]]; then
     echo "Este script debe ejecutarse como root o con sudo."
     exit 1
 fi
-apt install php php-cli php-cgi php-fpm php-mysql php-pqsql #php-mbstring php-curl php-zip php-gd php-imagick php-redis php-memcached php-mongodb php-sqlite3 php-xdebug php-pear php-dev
+apt install php php-cli php-cgi php-fpm php-mysql php-pgsql #php-mbstring php-curl php-zip php-gd php-imagick php-redis php-memcached php-mongodb php-sqlite3 php-xdebug php-pear php-dev
 php -v
 sleep 5
 php -m
