@@ -32,8 +32,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 #Segundo paso: inicialización del cortafuegos y
 #apertura de los puertos TCP clave que se han declarado en array "tcp_ports"
-ufw start
 ufw enable
+ufw start
 for port in "${tcp_ports[@]}"; do
     ufw allow "$port"/tcp
 done
@@ -54,8 +54,8 @@ adduser xrdp ssl-cert
 #Tercer paso: lanzamiento de los servicios utilizando systemctl
 for service in "${services[@]}"
 do
-    systemctl start $service
     systemctl enable $service
+    systemctl start $service
 done
 
 echo "Listo! Cerrando el terminal en 10 segundos. Para abortar el cierre pulsa Ctrl+C"
